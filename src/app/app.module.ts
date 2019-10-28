@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { BrokerComponent } from './broker/broker.component';
 import { PositionComponent } from './position/position.component';
 import { TradeComponent } from './trade/trade.component';
+import { SecuritiesComponent } from './components/securities/securities.component';
+import { SecurityItemComponent } from './components/security-item/security-item.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { TradeComponent } from './trade/trade.component';
     LoginComponent,
     BrokerComponent,
     PositionComponent,
-    TradeComponent
+    TradeComponent,
+    SecuritiesComponent,
+    SecurityItemComponent
   ],
   imports: [
     BrowserModule,
