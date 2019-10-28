@@ -10,7 +10,8 @@ import { BrokerComponent } from './broker/broker.component';
 import { PositionComponent } from './position/position.component';
 import { TradeComponent } from './trade/trade.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { MatDialogModule, MatButtonModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,8 +25,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatButtonModule,
+    BrowserAnimationsModule
   ],
+  entryComponents: [TradeComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
