@@ -18,7 +18,6 @@ export class TradeComponent implements OnInit {
 
 // should be put in securities component ts
   openDialog() {
-    console.log("open dialog!!");
     // tslint:disable-next-line: prefer-const
     let dialogRef = this.dialog.open(TradeComponent, {
       width: '600px',
