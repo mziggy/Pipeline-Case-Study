@@ -1,20 +1,23 @@
-<h2>Login</h2>
-<div class="card mt-5" style="margin:auto;width: 600px;">
-  <form [formGroup]= "loginForm" (ngSubmit)="login()">
+<h1 style = "text-align: center ">WELCOME</h1>
+<div class="login">
+  <h2 class = "login-header">Log in</h2>
+  <form [formGroup]= "loginForm" class = "login-container" (ngSubmit)="login()">
     <div class="form-group">
-      <label for="id">Id</label>
-      <input type="text" formControlName ="id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.id.errors }"  placeholder="Id">
+      <label for="id">Id:</label>
+      <input type="text" formControlName ="id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.id.errors }"  placeholder="Enter your id">
       <div *ngIf="submitted && f.id.errors" class="invalid-feedback">
         <div *ngIf="f.id.errors.required">Id is required</div>
     </div>
     </div>
     <div class="form-group">
-      <label for="id">Password</label>
-      <input type="password" formControlName = "password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" id="password" placeholder="Password" >
+      <label for="id">Password:</label>
+      <input type="password" formControlName = "password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" id="password" placeholder="Enter your password" >
       <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
         <div *ngIf="f.password.errors.required">Password is required</div>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
+    <p>
+        <input type="submit" value="Log in">
+    </p>
   </form>
 </div>

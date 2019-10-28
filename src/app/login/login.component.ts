@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Validators, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { User } from '../user';
+
 
 @Component({
   selector: 'app-login',
@@ -14,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private route: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService: AuthService
     ) { }
 
   ngOnInit() {
@@ -32,6 +36,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
+    this.authService.login(this.loginForm.value)
     // check if login works and who is logging in
     // if credentials correct then route to new page
     // else error
