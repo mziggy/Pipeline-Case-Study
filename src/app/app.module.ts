@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { BrokerComponent } from './broker/broker.component';
 import { PositionComponent } from './position/position.component';
 import { TradeComponent } from './trade/trade.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { TradeComponent } from './trade/trade.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
