@@ -1,0 +1,6 @@
+<h1>Broker Dashboard</h1>
+<div class = "row">
+  <div class = "cols-sm" *ngFor="let customer of customers">
+     <app-customer-portfolio [customer] = "customer"></app-customer-portfolio>
+  </div>
+</div>
