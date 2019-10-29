@@ -40,7 +40,6 @@ export class LoginComponent implements OnInit {
     // check if login works and who is logging in
     // if credentials correct then route to new page
     // else error
-    console.log(this.f.id.value);
 
     if (this.f.id.value[0] === 'b') {
       this.route.navigate(['/dashboard']);
@@ -48,7 +47,6 @@ export class LoginComponent implements OnInit {
     if (this.f.id.value[0] === 'c'){
       this.route.navigate(['/portfolio']);
     }
-    this.submitted = false;
     this.loginForm.reset();
     return;
   }

@@ -4,15 +4,37 @@
       <h1 >TRADE STOCK</h1>
       <hr>
       <mat-dialog-content>
-        Buy or Sell this Stock!
+       <h2> Buy or sell <strong>{{ data }}</strong></h2>
+        <form [formGroup] = "tradeForm" class = "trade">
+            <div class="form-group">
+                <label for="bId">Broker Id:</label>
+                <input type="bId" formControlName = "bId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.bId.errors }" id="bId" placeholder="Broker Id" >
+                <div *ngIf="submitted && f.bId.errors" class="invalid-feedback">
+                  <div *ngIf="f.bId.errors.required">Broker Id is required</div>
+                </div>
+              </div>
+              <div class="form-group">
+                  <label for="cId">Customer Id:</label>
+                  <input type="cId" formControlName = "cId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cId.errors }" id="cId" placeholder="Customer Id" >
+                  <div *ngIf="submitted && f.cId.errors" class="invalid-feedback">
+                    <div *ngIf="f.cId.errors.required">Customer Id is required</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount of Shares:</label>
+                    <input type="amount" formControlName = "amount" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.amount.errors }" id="amount" placeholder="Amount of Shares" >
+                    <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+                      <div *ngIf="f.amount.errors.required">Share amount is required</div>
+                    </div>
+                  </div>
+        </form>
         <br>
         <br>
-        <strong>{{ data }}</strong>
       </mat-dialog-content>
       <hr>
       <mat-dialog-actions>
-        <button class = "bs" mat-raised-button (click)="onCloseConfirm()">BUY</button>&nbsp;
-        <button class = "bs" mat-raised-button (click)="onCloseConfirm()">SELL</button>&nbsp;
+        <button class = "bs" mat-raised-button (click)="buy()">BUY</button>&nbsp;
+        <button class = "bs" mat-raised-button (click)="sell()">SELL</button>&nbsp;
         <button mat-raised-button (click)="onCloseCancel()">CANCEL</button>
       </mat-dialog-actions>
     </div>

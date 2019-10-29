@@ -47,7 +47,7 @@ export class SecurityItemComponent implements OnInit {
     const dialogRef = this.dialog.open(TradeComponent, {
         height: '400px',
         width: '600px',
-        data: 'This text is passed into the dialog!'
+        data: 'stock name' // should come from database
       });
     dialogRef.afterClosed().subscribe(result => {
         console.log(`Dialog closed: ${result}`);
