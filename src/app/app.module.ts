@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SecuritiesComponent } from './components/securities/securities.component';
 import { SecurityItemComponent } from './components/security-item/security-item.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CustomerComponent } from './customer/customer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     PositionComponent,
     TradeComponent,
     SecuritiesComponent,
-    SecurityItemComponent
+    SecurityItemComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,

@@ -1,19 +1,22 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Customer } from '../shared/customer.model';
-import { CUST } from '../shared/customer-list';
 
 @Component({
   selector: 'app-customer-portfolio',
   templateUrl: './customer-portfolio.component.html',
   styleUrls: ['./customer-portfolio.component.css']
 })
-export class CustomerPortfolioComponent implements OnInit {
-  @Input()
-  customer: Customer;
-  positions = CUST; // will not be cust eventually
-  constructor() { }
 
+export class CustomerPortfolioComponent implements OnInit {
+
+  positions: { name: string, quantity: number, value: number, cost: number } [] = [
+    { name: 'Shaughn', quantity: 11, value: 12.32, cost: 322},
+    { name: 'Molly', quantity: 21, value: 9999, cost:  454},
+    { name: 'Dre', quantity: 45, value: 212, cost: 445 },
+    { name: 'Briana', quantity: 78, value: 44, cost: 56 },
+    { name: 'Ali', quantity: 65, value: 23, cost: 75 }
+  ];
+
+  constructor() { }
   ngOnInit() {
   }
-
 }
