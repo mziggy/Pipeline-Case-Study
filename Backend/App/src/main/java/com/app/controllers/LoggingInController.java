@@ -15,7 +15,7 @@ import com.app.services.LoginService;
 import com.dtcc.app.App.User;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin 
 @RequestMapping("/")
 public class LoggingInController {
 	// @SuppressWarnings("resource")
@@ -30,7 +30,6 @@ public class LoggingInController {
 		user.setPassword(p);
 		s = loginService.authenticateUser(user);
 		System.out.println("In Controller " + user);
-		String status = "";
 		
 		if(s == "SUCCESS") {
 			System.out.println("Pass");
