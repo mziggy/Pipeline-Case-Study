@@ -1,0 +1,16 @@
+----------------------------------------------------------------
+Tue Oct 29 17:08:56 EDT 2019: Shutting down Derby engine
+----------------------------------------------------------------
+-----------
+Tue Oct 29 17:08:53 EDT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-016e-1959-667e-000005d77b50 
+on database directory C:\Angular\Pipeline-Final\Backend\Derby\StockDB with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+Loaded from file:/C:/Angular/Pipeline-Final/Backend/DerbyLib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_231-b11
+user.dir=C:\Angular\Pipeline-Final\Backend\Derby
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
