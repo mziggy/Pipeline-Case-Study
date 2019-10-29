@@ -1,8 +1,12 @@
-import { Posit } from './Posit.model';
+import {User} from './user';
 
-export class Customer {
+export class Customer extends User {
   constructor(
-  public name: string,
-  //public positions: Posit []
-  ) {}
+    id: string,
+    brokerId: string,
+    password: string,
+    name: string
+  ) {
+    super();
+  }
 }

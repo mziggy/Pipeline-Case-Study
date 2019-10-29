@@ -1,8 +1,18 @@
-<div>
-    <h3>{{ customer.name }}</h3>
-</div>
-<div class = "row">
-  <div class = "cols-sm" *ngFor="let position of positions">
-    <app-position [position] = "position"></app-position>
-  </div>
-</div>
+<input type="text" id="myInput" (keyup)="myFunction()" placeholder="Search for names..">
+
+<table id = "port-table" class = "port-table">
+  <tr class = "header">
+    <th>Stock Name</th>
+    <th>Quantity</th>
+    <th>Value of Stock Owned</th>
+    <th>Current Cost</th>
+  </tr>
+
+  <tr *ngFor="let position of positions" >
+    <td>{{position.name}}</td>
+    <td>{{position.quantity}}</td>
+    <td>{{position.value}}</td>
+    <td>{{position.cost}}</td>
+  </tr>
+
+</table>
