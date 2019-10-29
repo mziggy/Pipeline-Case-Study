@@ -1,5 +1,11 @@
 export class Security {
   id: number;
-  title: string;
-  completed: boolean;
+  symbol: string;
+  name: string;
+  type: string;
+  price: DoubleRange;
+  dividend: boolean;
+  rating: DoubleRange;
+  high: DoubleRange;
+  low: DoubleRange;
 }
