@@ -1,10 +1,11 @@
-import {User} from '../user';
+import {User} from './user';
 
 export class Customer extends User {
   constructor(
-    public id: string,
-    public password: string,
-    public name: string
+    id: string,
+    brokerId: string,
+    password: string,
+    name: string
   ) {
     super();
   }
