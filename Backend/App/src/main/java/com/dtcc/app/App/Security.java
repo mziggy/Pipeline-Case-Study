@@ -1,22 +1,22 @@
 package com.dtcc.app.App;
 
 public class Security {
-	private String security_id;
+	private String id;
 	private String symbol;
 	private String name;
 	private String type;
 	private double price;
-	private int dividend;
+	private boolean dividend;
 	private double rating;
 	private double high;
 	private double low;
 	
 	
-	public String getSecurity_id() {
-		return security_id;
+	public String getId() {
+		return id;
 	}
-	public void setSecurity_id(String security_id) {
-		this.security_id = security_id;
+	public void setId(String security_id) {
+		this.id = security_id;
 	}
 	public String getName() {
 		return name;
@@ -30,10 +30,10 @@ public class Security {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public int getDividend() {
+	public boolean getDividend() {
 		return dividend;
 	}
-	public void setDividend(int dividend) {
+	public void setDividend(boolean dividend) {
 		this.dividend = dividend;
 	}
 	public double getRating() {
