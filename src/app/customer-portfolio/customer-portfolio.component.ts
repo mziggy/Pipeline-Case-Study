@@ -13,7 +13,9 @@ export class CustomerPortfolioComponent implements OnInit {
     { name: 'Molly', quantity: 21, value: 9999, cost:  454},
     { name: 'Dre', quantity: 45, value: 212, cost: 445 },
     { name: 'Briana', quantity: 78, value: 44, cost: 56 },
-    { name: 'Ali', quantity: 65, value: 23, cost: 75 }
+    { name: 'Ali', quantity: 65, value: 23, cost: 75 },
+    { name: 'Claire', quantity: 78, value: 44, cost: 56 },
+    { name: 'Sumra', quantity: 78, value: 44, cost: 56 }
   ];
 
   constructor() { }

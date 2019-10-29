@@ -1,0 +1,46 @@
+#myInput , #myInput2, #myInput3{
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+#port-table {
+  border-collapse: collapse; /* Collapse borders */
+  width: 100%; /* Full-width */
+  border: 1px solid #ddd; /* Add a grey border */
+  font-size: 18px; /* Increase font-size */
+}
+
+#port-table th, #port-table td {
+  text-align: left; /* Left-align text */
+  padding: 12px; /* Add padding */
+}
+
+#port-table tr {
+  /* Add a bottom border to all table rows */
+  border-bottom: 1px solid #ddd;
+}
+
+#port-table tr.header{
+  /* Add a grey background color to the table header and on hover */
+  background-color: rgb(12,77,129);
+  color: white;
+}
+
+.items:hover{
+  background-color: #bcc6ce;
+}
+
+.cust{
+  width: 100%;
+  font-size: 30px;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  text-align: center;
+  background-color: rgb(12,77,129);
+  color: white;
+}
