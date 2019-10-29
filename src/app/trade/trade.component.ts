@@ -29,17 +29,20 @@ export class TradeComponent implements OnInit {
   get f() { return this.tradeForm.controls; }
 
   buy() {
+    // buy stock
+    // add to customer portfolio
     this.onCloseConfirm();
   }
   sell() {
+    // sell stock
+    // check if customer has enough of this stock in portfolio
+    // if not, error message
     this.onCloseConfirm();
   }
   onCloseConfirm() {
     this.submitted = true;
     // don't continue if invalid
     if (this.tradeForm.invalid) {
-      console.log('returned');
-
       return;
     }
     this.thisDialogRef.close('Confirm');
