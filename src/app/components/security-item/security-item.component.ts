@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Security } from '../../models/security';
 import { SecurityService } from '../../services/security.service';
+import { TradeComponent } from 'src/app/trade/trade.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-security-item',
@@ -11,7 +13,11 @@ import { SecurityService } from '../../services/security.service';
 export class SecurityItemComponent implements OnInit {
   @Input() security: Security;
   @Output() deleteSecurity: EventEmitter<Security> = new EventEmitter();
-  constructor(private securityService: SecurityService) { }
+  dialogResult: any;
+  constructor(
+    private securityService: SecurityService,
+    public dialog: MatDialog
+    ) { }
 
   ngOnInit() {
   }
@@ -37,8 +43,16 @@ export class SecurityItemComponent implements OnInit {
 
   }
 
-  onDelete(security) {
-    this.deleteSecurity.emit(security);
+  OpenTradeDialog(security) {
+    const dialogRef = this.dialog.open(TradeComponent, {
+        height: '400px',
+        width: '600px',
+        data: 'This text is passed into the dialog!'
+      });
+    dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog closed: ${result}`);
+        this.dialogResult = result;
+      });
   }
 
 }

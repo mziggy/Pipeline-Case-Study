@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialog} from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef } from '@angular/material';
+import {MAT_DIALOG_DATA} from '@angular/material';
+
 
 @Component({
   selector: 'app-trade',
@@ -7,25 +9,18 @@ import {MatDialog} from '@angular/material';
   styleUrls: ['./trade.component.css']
 })
 export class TradeComponent implements OnInit {
-  dialogResult: any;
 
   constructor(
-    public dialog: MatDialog
+    public thisDialogRef: MatDialogRef<TradeComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: string
     ) { }
 
   ngOnInit() {
   }
-
-// should be put in securities component ts
-  openDialog() {
-    // tslint:disable-next-line: prefer-const
-    let dialogRef = this.dialog.open(TradeComponent, {
-      width: '600px',
-      data: 'This text is passed into the dialog!'
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog closed: ${result}`);
-      this.dialogResult = result;
-    });
+  onCloseConfirm() {
+    this.thisDialogRef.close('Confirm');
+  }
+  onCloseCancel() {
+    this.thisDialogRef.close('Cancel');
   }
 }
