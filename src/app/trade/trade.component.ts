@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialog} from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef } from '@angular/material';
+import {MAT_DIALOG_DATA} from '@angular/material';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-trade',
@@ -7,26 +10,41 @@ import {MatDialog} from '@angular/material';
   styleUrls: ['./trade.component.css']
 })
 export class TradeComponent implements OnInit {
-  dialogResult: any;
+  tradeForm: FormGroup;
+  submitted = false;
 
   constructor(
-    public dialog: MatDialog
+    private formBuilder: FormBuilder,
+    public thisDialogRef: MatDialogRef<TradeComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: string
     ) { }
 
   ngOnInit() {
+    this.tradeForm = this.formBuilder.group({
+      bId: ['', Validators.required],
+      cId: ['', Validators.required],
+      amount: ['', Validators.required],
+    });
   }
+  get f() { return this.tradeForm.controls; }
 
-// should be put in securities component ts
-  openDialog() {
-    console.log("open dialog!!");
-    // tslint:disable-next-line: prefer-const
-    let dialogRef = this.dialog.open(TradeComponent, {
-      width: '600px',
-      data: 'This text is passed into the dialog!'
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog closed: ${result}`);
-      this.dialogResult = result;
-    });
+  buy() {
+    this.onCloseConfirm();
+  }
+  sell() {
+    this.onCloseConfirm();
+  }
+  onCloseConfirm() {
+    this.submitted = true;
+    // don't continue if invalid
+    if (this.tradeForm.invalid) {
+      console.log('returned');
+
+      return;
+    }
+    this.thisDialogRef.close('Confirm');
+  }
+  onCloseCancel() {
+    this.thisDialogRef.close('Cancel');
   }
 }
