@@ -7,13 +7,18 @@
     <th>Quantity</th>
     <th>Value of Stock Owned</th>
     <th>Current Cost</th>
+    <th></th>
   </tr>
 
-  <tr class="items" *ngFor="let position of positions" >
+  <tr class="items" *ngFor="let position of positions; let i = index" >
     <td>{{position.name}}</td>
     <td>{{position.quantity}}</td>
     <td>{{position.value}}</td>
     <td>{{position.cost}}</td>
+    <td>
+        <button mat-raised-button (click)="OpenTradeDialog(i)">Buy/Sell</button>
+    </td>
   </tr>
 
 </table>
+<h1 style = "color: red"> {{ dialogResult }} </h1>

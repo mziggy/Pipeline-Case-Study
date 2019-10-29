@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { TradeComponent } from '../trade/trade.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-customer-portfolio',
@@ -7,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class CustomerPortfolioComponent implements OnInit {
-
+  dialogResult = '';
   positions: { name: string, quantity: number, value: number, cost: number } [] = [
     { name: 'Shaughn', quantity: 11, value: 12.32, cost: 322},
     { name: 'Molly', quantity: 21, value: 9999, cost:  454},
@@ -18,10 +20,23 @@ export class CustomerPortfolioComponent implements OnInit {
     { name: 'Sumra', quantity: 78, value: 44, cost: 56 }
   ];
 
-  constructor() { }
+  constructor(
+    public dialog: MatDialog
+  ) { }
   ngOnInit() {
   }
 
+  OpenTradeDialog(index) {
+    const dialogRef = this.dialog.open(TradeComponent, {
+        height: '400px',
+        width: '600px',
+        data:  this.positions[index].name // should come from database
+      });
+    dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog closed: ${result}`);
+        this.dialogResult = result;
+      });
+  }
 
   myFunction() {
     // tslint:disable-next-line: one-variable-per-declaration
