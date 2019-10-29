@@ -1,4 +1,5 @@
-<input type="text" id="myInput" (keyup)="myFunction()" placeholder="Search for names..">
+<input id="myInput" (keyup)="myFunction()"  type="text" placeholder="Search for names..">
+
 
 <table id = "port-table" class = "port-table">
   <tr class = "header">
@@ -8,7 +9,7 @@
     <th>Current Cost</th>
   </tr>
 
-  <tr *ngFor="let position of positions" >
+  <tr class="items" *ngFor="let position of positions" >
     <td>{{position.name}}</td>
     <td>{{position.quantity}}</td>
     <td>{{position.value}}</td>
