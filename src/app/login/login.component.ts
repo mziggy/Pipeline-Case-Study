@@ -55,7 +55,6 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/portfolio']);
       }
     }
-    this.submitted = false;
     this.loginForm.reset();
     return;
   }

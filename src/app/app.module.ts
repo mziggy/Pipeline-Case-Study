@@ -16,6 +16,10 @@ import { TradeComponent } from './trade/trade.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule, MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SecuritiesComponent } from './components/securities/securities.component';
+import { SecurityItemComponent } from './components/security-item/security-item.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CustomerComponent } from './customer/customer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +27,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     BrokerComponent,
     PositionComponent,
-    TradeComponent
+    TradeComponent,
+    SecuritiesComponent,
+    SecurityItemComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,
