@@ -14,10 +14,10 @@ import { AuthService } from '../auth.service';
 
 export class LoginComponent implements OnInit {
 
-  constructor(private loginService: LoggingInService,
-              private router: Router,
+  constructor(public loginService: LoggingInService,
+              public router: Router,
               private authService: AuthService,
-              private formBuilder: FormBuilder) {}
+              public formBuilder: FormBuilder) {}
   loginForm: FormGroup;
   submitted = false;
 
@@ -29,7 +29,9 @@ export class LoginComponent implements OnInit {
   get password() {
     return this.loginForm.get('password');
   }
-  private user = new User();
+  public user = new User();
+
+  get f() { return this.loginForm.controls; }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -41,7 +43,8 @@ export class LoginComponent implements OnInit {
   checkLogon() {
     this.submitted = true;
     if (this.loginForm.invalid) {
-       return;
+      console.log('invalid');
+      return;
     }
     // this.authService.login(this.loginForm.value);
     if (this.user === null) {
@@ -61,6 +64,7 @@ export class LoginComponent implements OnInit {
     // create the form object
 
     Login() {
+      this.checkLogon();
       this.user.id = this.id.value;
       this.user.password = this.password.value;
       console.log('This sessions userId is: ' + this.user.id);
