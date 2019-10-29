@@ -11,7 +11,12 @@ import { CUST } from '../shared/customer-list';
 export class BrokerComponent implements OnInit {
   @Input()
   customers = CUST;
-  constructor() { }
+  constructor(
+    customerId: string,
+    brokerId: string,
+    password: string,
+    name: string
+  ) { }
 
   ngOnInit() {
   }
