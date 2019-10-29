@@ -6,6 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./broker.component.css']
 })
 export class BrokerComponent implements OnInit {
+
   customers: { firstname: string, lastname: string, cid: string } [] = [
     { firstname: 'Shaughn', lastname: 'Seepaul', cid: 'c121'},
     { firstname: 'Molly', lastname: 'Ziggy', cid: 'c122'},
@@ -16,6 +17,7 @@ export class BrokerComponent implements OnInit {
     { firstname: 'Sumra', lastname: 'Gil', cid: 'c127'}
   ];
   constructor() { }
+
 
   ngOnInit() {
   }

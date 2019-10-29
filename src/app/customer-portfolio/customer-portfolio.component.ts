@@ -22,7 +22,8 @@ export class CustomerPortfolioComponent implements OnInit {
   ngOnInit() {
   }
 
-  myFunction(){
+
+  myFunction() {
     // tslint:disable-next-line: one-variable-per-declaration
     let input, filter, table, tr, td, i, txtValue;
     input = document.getElementById('myInput');
