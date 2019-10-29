@@ -3,6 +3,7 @@ import {Validators, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } f
 import { Router } from '@angular/router';
 import { LoggingInService } from './logging-in.service';
 import { User } from '../shared/user';
+import { AuthService } from '../auth.service';
 
 
 @Component({
@@ -13,8 +14,12 @@ import { User } from '../shared/user';
 
 export class LoginComponent implements OnInit {
 
-  constructor(private loginService: LoggingInService, private router: Router) {}
+  constructor(private loginService: LoggingInService,
+              private router: Router,
+              private authService: AuthService,
+              private formBuilder: FormBuilder) {}
   loginForm: FormGroup;
+  submitted = false;
 
 
   get id() {
@@ -27,21 +32,32 @@ export class LoginComponent implements OnInit {
   private user = new User();
 
   ngOnInit() {
-    this.loginForm = new FormGroup({
-      id: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required)
+    this.loginForm = this.formBuilder.group({
+      id: ['', Validators.required],
+      password: ['', Validators.required]
     });
   }
 
   checkLogon() {
-    if(this.user != null){
-    if (this.user.id[0] === 'B') {
-      this.router.navigate(['/dashboard']);
+    this.submitted = true;
+    if (this.loginForm.invalid) {
+       return;
     }
-    if (this.user.id[0] === 'C') {
-        this.router.navigate(['/portfolio']);
+    // this.authService.login(this.loginForm.value);
+    if (this.user === null) {
+      alert("Try again.");
+    }
+    if (this.user != null) {
+      if (this.user.id[0] === 'B') {
+        this.router.navigate(['/dashboard']);
+      }
+      if (this.user.id[0] === 'C') {
+          this.router.navigate(['/portfolio']);
       }
     }
+    this.submitted = false;
+    this.loginForm.reset();
+    return;
   }
     // create the form object
 
