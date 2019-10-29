@@ -45,9 +45,9 @@ export class TradeComponent implements OnInit {
     if (this.tradeForm.invalid) {
       return;
     }
-    this.thisDialogRef.close('Confirm');
+    this.thisDialogRef.close('Trade Confirmed');
   }
   onCloseCancel() {
-    this.thisDialogRef.close('Cancel');
+    this.thisDialogRef.close('Trade Canceled');
   }
 }

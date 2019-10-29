@@ -1,0 +1,31 @@
+h1{
+  background: rgb(12, 77, 129);
+  color: white;
+  padding: 25px 0;
+  text-align: center;
+  font-size: 40px;
+}
+*{
+  width: 700px;
+  margin: 16px auto;
+}
+
+.container {
+  background: #ebebeb;
+  padding: 12px;
+}
+
+
+.details {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 1px;
+  padding: 16px;
+  font-family: inherit;
+  font-size: 20px;
+}
+
+
+
+
