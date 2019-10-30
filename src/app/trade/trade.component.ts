@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
-import {MAT_DIALOG_DATA} from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,8 +14,7 @@ export class TradeComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    public thisDialogRef: MatDialogRef<TradeComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: string
+    private route: Router
     ) { }
 
   ngOnInit() {
@@ -45,9 +43,9 @@ export class TradeComponent implements OnInit {
     if (this.tradeForm.invalid) {
       return;
     }
-    this.thisDialogRef.close('Trade Confirmed');
+    this.route.navigate(['/portfolio']);
   }
   onCloseCancel() {
-    this.thisDialogRef.close('Trade Canceled');
+    this.route.navigate(['/portfolio']);
   }
 }

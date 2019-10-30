@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TradeComponent } from '../trade/trade.component';
 import { MatDialog } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-portfolio',
@@ -21,21 +22,14 @@ export class CustomerPortfolioComponent implements OnInit {
   ];
 
   constructor(
-    public dialog: MatDialog
+   public route: Router
   ) { }
   ngOnInit() {
   }
 
-  OpenTradeDialog(index) {
-    const dialogRef = this.dialog.open(TradeComponent, {
-        height: '400px',
-        width: '600px',
-        data:  this.positions[index].name // should come from database
-      });
-    dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog closed: ${result}`);
-        this.dialogResult = result;
-      });
+  OpenTradeDialog() {
+    // navigate to transaction page
+      this.route.navigate(['/transaction']);
   }
 
   myFunction() {
