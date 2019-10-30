@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { StorageService } from '../storage.service';
 
 @Component({
   selector: 'app-broker',
@@ -16,10 +17,14 @@ export class BrokerComponent implements OnInit {
     { name: 'Claire Betz', cid: 'c126'},
     { name:  'Sumra Gil', cid: 'c127'}
   ];
-  constructor() { }
+  constructor( private service: StorageService) { }
 
 
   ngOnInit() {
+    console.log('');
+
+    console.log('Broker Id: ' + this.service.getBId());
+
   }
 
   myFunction() {
