@@ -19,17 +19,19 @@ import com.dtcc.app.App.Security;
 public class SecurityController {
 
 	@Autowired
-	private SecurityDAO security;
+	private SecurityDAO securitydao;
 	
 	@GetMapping(produces=MediaType.APPLICATION_JSON_VALUE)
 	public Collection<Security> getSecurities() {
-		return security.getSecurities();
+		return securitydao.getSecurities();
 	}
 
-	@GetMapping(value="/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
-	public Security getSecurity(@PathVariable("id") int id) {
-		return security.getSecurity(id);
+	@GetMapping(value="/id/{security_id}", produces=MediaType.APPLICATION_JSON_VALUE)
+	public Security getSecurity(@PathVariable("security_id") String id) {
+		return securitydao.getSecurity(id);
 	}
 	
+	
 
+	
 }
