@@ -57,18 +57,18 @@ export class LoginComponent implements OnInit {
       if (this.user.id[0] === 'C') {
           this.router.navigate(['/portfolio']);
       }
+      this.loginForm.reset();
     }
-    this.loginForm.reset();
     return;
   }
     // create the form object
 
     Login() {
-      this.checkLogon();
       this.user.id = this.id.value;
       this.user.password = this.password.value;
       console.log('This sessions userId is: ' + this.user.id);
       console.log('The password is: ' + this.user.password);
+      this.checkLogon();
 
       this.loginService.login(this.user).subscribe(
         data => {
