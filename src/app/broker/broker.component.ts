@@ -10,13 +10,10 @@ import { Router } from '@angular/router';
 export class BrokerComponent implements OnInit {
 
   customers: { name: string,   cid: string } [] = [
-    { name: 'Shaughn Seepaul', cid: 'c121'},
-    { name: 'Molly Vonada',    cid: 'c213'},
-    { name: 'Dre Will',        cid: 'c654'},
-    { name: 'Briana Mayes',    cid: 'c524'},
-    { name: 'Ali Fallah',      cid: 'c575'},
-    { name: 'Claire Betz',     cid: 'c426'},
-    { name: 'Sumra Gil',       cid: 'c347'}
+    { name: 'Patrick Henry',    cid: 'C12345'},
+    { name: 'Leonardo DiCaprio', cid: 'C12346'},
+    { name: 'Derek Perkins',    cid: 'C12347'},
+    { name: 'John Mullins',    cid: 'C12348'}
   ];
   constructor( private service: StorageService,
                public router: Router) { }
