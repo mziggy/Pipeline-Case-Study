@@ -12,9 +12,9 @@
   </tr>
 
   <tr class="items" *ngFor="let position of positions; let i = index" >
-    <td>{{position.name}}</td>
+    <td>{{position.securityName}}</td>
     <td>{{position.quantity}}</td>
-    <td>{{position.value}}</td>
+    <td>${{position.cost * position.quantity}}</td>
     <td>{{position.cost}}</td>
     <td>
         <button mat-raised-button (click)="OpenTradeDialog(i)" >Buy/Sell</button>
@@ -23,4 +23,3 @@
   </tr>
 
 </table>
-<h1 style = "color: red"> {{ dialogResult }} </h1>

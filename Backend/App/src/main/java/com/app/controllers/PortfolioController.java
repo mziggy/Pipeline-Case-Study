@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-//import com.app.dao.PropertiesDAO;
-import com.app.dao.SecurityDAO;
+import com.app.dao.PropertiesDAO;
+import com.dtcc.app.App.Properties;
 import com.dtcc.app.App.Security;
 
 @RestController
@@ -19,15 +19,20 @@ import com.dtcc.app.App.Security;
 @CrossOrigin
 public class PortfolioController {
 	
-	@Autowired
-	private SecurityDAO securitydao;
-	
 //	@Autowired
-//	private PropertiesDAO propdao;
+//	private SecurityDAO securitydao;
+	
+	@Autowired
+	private PropertiesDAO propdao;
+	
+//	@GetMapping(value="/{customer_id}", produces=MediaType.APPLICATION_JSON_VALUE)
+//	public Collection<Properties> getPropertiesForCustBySecurity(Security security){
+//		return propdao.getPropertiesForCustBySecurity(security);
+//	}
 	
 	@GetMapping(value="/{customer_id}", produces=MediaType.APPLICATION_JSON_VALUE)
-	public Collection<Security> getSecurityByCustId(@PathVariable("customer_id") String id) {
-		return securitydao.getSecurityByCustId(id);
+	public Collection<Properties> getPropertiesById(@PathVariable("customer_id") String id){
+		return propdao.getPropertiesById(id);
 	}
 
 }
