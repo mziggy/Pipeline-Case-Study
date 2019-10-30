@@ -1,5 +1,4 @@
-export class Customer{
-
+export class Customer {
   CUSTOMER_ID: string;
   BROKER_ID: string;
   CUSTOMER_PWD: string;

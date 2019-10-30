@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { BrokerService } from './broker.service';
+import { Broker } from '../models/Broker';
 
 @Component({
   selector: 'app-broker',
@@ -16,10 +18,13 @@ export class BrokerComponent implements OnInit {
     { name: 'Claire Betz', cid: 'c126'},
     { name:  'Sumra Gil', cid: 'c127'}
   ];
-  constructor() { }
+  broker: Broker[];
+  constructor(brokerService: BrokerService) { }
 
 
   ngOnInit() {
+    this.broker.getBrokers().subscribe(generics => {
+      this.generics = generics;
   }
 
   myFunction() {
