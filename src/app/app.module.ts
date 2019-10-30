@@ -13,8 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { BrokerComponent } from './broker/broker.component';
 import { PositionComponent } from './position/position.component';
 import { TradeComponent } from './trade/trade.component';
-import { SecuritiesComponent } from './components/securities/securities.component';
-import { SecurityItemComponent } from './components/security-item/security-item.component';
+
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule, MatButtonModule } from '@angular/material';
@@ -30,11 +29,8 @@ import { CustomerComponent } from './customer/customer.component';
     PositionComponent,
     TradeComponent,
     SecuritiesComponent,
-    SecurityItemComponent
-
-523e71313e5490653e690dc7d61f31d3dbfc20f8
     CustomerComponent
-5a86a404bb875fb6612b601c2ed6c6a8e9a5c87d
+
   ],
   imports: [
     BrowserModule,
