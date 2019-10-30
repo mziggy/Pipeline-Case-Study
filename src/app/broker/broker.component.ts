@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { StorageService } from '../storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-broker',
@@ -8,23 +9,26 @@ import { StorageService } from '../storage.service';
 })
 export class BrokerComponent implements OnInit {
 
-  customers: { name: string, cid: string } [] = [
-    { name: 'Shaugh Seepaul', cid: 'c121'},
-    { name: 'Molly Vonada', cid: 'c122'},
-    { name: 'Dre Will', cid: 'c123'},
-    { name: 'Briana Mayes', cid: 'c124'},
-    { name: 'Ali Fallah', cid: 'c125'},
-    { name: 'Claire Betz', cid: 'c126'},
-    { name:  'Sumra Gil', cid: 'c127'}
+  customers: { name: string,   cid: string } [] = [
+    { name: 'Shaughn Seepaul', cid: 'c121'},
+    { name: 'Molly Vonada',    cid: 'c213'},
+    { name: 'Dre Will',        cid: 'c654'},
+    { name: 'Briana Mayes',    cid: 'c524'},
+    { name: 'Ali Fallah',      cid: 'c575'},
+    { name: 'Claire Betz',     cid: 'c426'},
+    { name: 'Sumra Gil',       cid: 'c347'}
   ];
-  constructor( private service: StorageService) { }
+  constructor( private service: StorageService,
+               public router: Router) { }
 
 
   ngOnInit() {
-    console.log('');
-
     console.log('Broker Id: ' + this.service.getBId());
+  }
 
+  openCust(i) {
+    this.service.setCId(this.customers[i].cid);
+    this.router.navigate(['/portfolio']);
   }
 
   myFunction() {
