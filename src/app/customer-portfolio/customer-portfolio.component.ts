@@ -32,6 +32,7 @@ export class CustomerPortfolioComponent implements OnInit {
     { name: 'Sumra', quantity: 78, value: 44, cost: 56 }
   ];
 
+
   constructor(
    public route: Router,
    public portfolioService: CustomerPorfolioService,
