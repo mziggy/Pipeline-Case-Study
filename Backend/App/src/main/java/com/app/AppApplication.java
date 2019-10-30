@@ -14,7 +14,7 @@ public class AppApplication {
 		SpringApplication.run(AppApplication.class, args);
 	}
 	
-	/*@Bean
+	@Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
@@ -23,5 +23,5 @@ public class AppApplication {
                         .allowedMethods("HEAD", "GET", "PUT", "POST", "DELETE", "PATCH");
             }
         };
-    }*/
+    }
 }

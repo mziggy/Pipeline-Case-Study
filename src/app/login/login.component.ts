@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import {Validators, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoggingInService } from './logging-in.service';
 import { User } from '../shared/user';
 import { AuthService } from '../auth.service';
+import { EventEmitter } from 'events';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { AuthService } from '../auth.service';
 })
 
 export class LoginComponent implements OnInit {
+  @Output() public userid = new EventEmitter();
 
   constructor(public loginService: LoggingInService,
               public router: Router,
@@ -48,10 +50,11 @@ export class LoginComponent implements OnInit {
     }
     // this.authService.login(this.loginForm.value);
     if (this.user === null) {
-      alert("Try again.");
+      alert('Try again.');
     }
     if (this.user != null) {
       if (this.user.id[0] === 'B') {
+        console.log('This sessions userId is: ' + this.user.id);
         this.router.navigate(['/dashboard']);
       }
       if (this.user.id[0] === 'C') {
@@ -61,14 +64,15 @@ export class LoginComponent implements OnInit {
     this.loginForm.reset();
     return;
   }
-    // create the form object
 
     Login() {
-      this.checkLogon();
       this.user.id = this.id.value;
       this.user.password = this.password.value;
       console.log('This sessions userId is: ' + this.user.id);
       console.log('The password is: ' + this.user.password);
+      this.checkLogon();
+
+      this.userid.emit(this.user.id);
 
       this.loginService.login(this.user).subscribe(
         data => {

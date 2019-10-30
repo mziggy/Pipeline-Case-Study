@@ -1,22 +1,24 @@
 package com.dtcc.app.App;
 
+import java.util.Collection;
+
 public class Security {
-	private String id;
+	private String security_id;
 	private String symbol;
 	private String name;
 	private String type;
 	private double price;
 	private boolean dividend;
-	private double rating;
+	private String rating;
 	private double high;
 	private double low;
+	private Collection<Properties> properties;
 	
-	
-	public String getId() {
-		return id;
+	public String getSecurity_id() {
+		return security_id;
 	}
-	public void setId(String security_id) {
-		this.id = security_id;
+	public void setSecurity_id(String security_id) {
+		this.security_id = security_id;
 	}
 	public String getName() {
 		return name;
@@ -36,10 +38,10 @@ public class Security {
 	public void setDividend(boolean dividend) {
 		this.dividend = dividend;
 	}
-	public double getRating() {
+	public String getRating() {
 		return rating;
 	}
-	public void setRating(double rating) {
+	public void setRating(String rating) {
 		this.rating = rating;
 	}
 	public double getHigh() {
@@ -66,6 +68,12 @@ public class Security {
 	}
 	public void setPrice(double price) {
 		this.price = price;
+	}
+	public Collection<Properties> getProperties() {
+		return properties;
+	}
+	public void setProperties(Collection<Properties> properties) {
+		this.properties = properties;
 	}
 	
 }
