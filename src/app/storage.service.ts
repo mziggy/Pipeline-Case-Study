@@ -9,8 +9,17 @@ export class StorageService {
 
   bid: string;
   cid: string;
+  sid: string;
+
+  setSId(id: string){
+    this.sid = id;
+  }
+
+  getSId(): string{
+    return this.sid;
+  }
   setBId(id: string){
-    this.bid = id;
+    this.sid = id;
   }
 
   getBId(): string{

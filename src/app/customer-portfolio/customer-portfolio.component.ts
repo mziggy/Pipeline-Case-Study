@@ -26,14 +26,16 @@ export class CustomerPortfolioComponent implements OnInit {
    public route: Router,
    private service: StorageService
   ) { }
+  i = 0;
   ngOnInit() {
     console.log('Customer Id: ' + this.service.getCId());
 
   }
 
-  OpenTradeDialog() {
+  OpenTradeDialog(i) {
     // navigate to transaction page
-      this.route.navigate(['/transaction']);
+    this.service.setSId(this.positions[i].name);
+    this.route.navigate(['/transaction']);
   }
 
   myFunction() {
