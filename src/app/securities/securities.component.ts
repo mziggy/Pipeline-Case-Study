@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./securities.component.css']
 })
 export class SecuritiesComponent implements OnInit {
-
   constructor(
     public route: Router
   ) { }

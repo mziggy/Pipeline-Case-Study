@@ -23,10 +23,7 @@ export class BrokerComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log('');
-
     console.log('Broker Id: ' + this.service.getBId());
-
   }
 
   openCust(i) {

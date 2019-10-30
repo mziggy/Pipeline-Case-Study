@@ -14,7 +14,6 @@ import { StorageService } from '../storage.service';
 })
 
 export class LoginComponent implements OnInit {
-
   constructor(public loginService: LoggingInService,
               public router: Router,
               private authService: AuthService,
@@ -50,10 +49,11 @@ export class LoginComponent implements OnInit {
     }
     // this.authService.login(this.loginForm.value);
     if (this.user === null) {
-      alert("Try again.");
+      alert('Try again.');
     }
     if (this.user != null) {
       if (this.user.id[0] === 'B') {
+        console.log('This sessions userId is: ' + this.user.id);
         this.service.setBId(this.user.id);
         this.router.navigate(['/dashboard']);
       }
@@ -65,23 +65,26 @@ export class LoginComponent implements OnInit {
     }
     return;
   }
-    // create the form object
 
     Login() {
       this.user.id = this.id.value;
       this.user.password = this.password.value;
       console.log('This sessions userId is: ' + this.user.id);
       console.log('The password is: ' + this.user.password);
-      this.checkLogon();
       this.loginService.login(this.user).subscribe(
         data => {
           console.log('------->' +  data);
           console.log(data);
           this.user = data;
           this.checkLogon();
+          this.brokerEvent.emit('hello');
+          console.log('done');
         }, error => {
           console.log('ERROR HERE' + error);
         }
       );
+
+
+
     }
   }
