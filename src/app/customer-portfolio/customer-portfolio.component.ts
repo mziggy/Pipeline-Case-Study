@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { TradeComponent } from '../trade/trade.component';
+import { MatDialog } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-portfolio',
@@ -7,17 +10,26 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class CustomerPortfolioComponent implements OnInit {
-
+  dialogResult = '';
   positions: { name: string, quantity: number, value: number, cost: number } [] = [
     { name: 'Shaughn', quantity: 11, value: 12.32, cost: 322},
     { name: 'Molly', quantity: 21, value: 9999, cost:  454},
     { name: 'Dre', quantity: 45, value: 212, cost: 445 },
     { name: 'Briana', quantity: 78, value: 44, cost: 56 },
-    { name: 'Ali', quantity: 65, value: 23, cost: 75 }
+    { name: 'Ali', quantity: 65, value: 23, cost: 75 },
+    { name: 'Claire', quantity: 78, value: 44, cost: 56 },
+    { name: 'Sumra', quantity: 78, value: 44, cost: 56 }
   ];
 
-  constructor() { }
+  constructor(
+   public route: Router
+  ) { }
   ngOnInit() {
+  }
+
+  OpenTradeDialog() {
+    // navigate to transaction page
+      this.route.navigate(['/transaction']);
   }
 
   myFunction() {
