@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { TradeComponent } from '../trade/trade.component';
 import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
+import { StorageService } from '../storage.service';
 
 @Component({
   selector: 'app-customer-portfolio',
@@ -22,9 +23,12 @@ export class CustomerPortfolioComponent implements OnInit {
   ];
 
   constructor(
-   public route: Router
+   public route: Router,
+   private service: StorageService
   ) { }
   ngOnInit() {
+    console.log('Customer Id: ' + this.service.getCId());
+
   }
 
   OpenTradeDialog() {

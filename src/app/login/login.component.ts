@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { LoggingInService } from './logging-in.service';
 import { User } from '../shared/user';
 import { AuthService } from '../auth.service';
+import { StorageService } from '../storage.service';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(public loginService: LoggingInService,
               public router: Router,
               private authService: AuthService,
-              public formBuilder: FormBuilder) {}
+              public formBuilder: FormBuilder,
+              private service: StorageService) {}
   loginForm: FormGroup;
   submitted = false;
 
@@ -52,10 +54,12 @@ export class LoginComponent implements OnInit {
     }
     if (this.user != null) {
       if (this.user.id[0] === 'B') {
+        this.service.setBId(this.user.id);
         this.router.navigate(['/dashboard']);
       }
       if (this.user.id[0] === 'C') {
-          this.router.navigate(['/portfolio']);
+        this.service.setCId(this.user.id);
+        this.router.navigate(['/portfolio']);
       }
       this.loginForm.reset();
     }
@@ -69,7 +73,6 @@ export class LoginComponent implements OnInit {
       console.log('This sessions userId is: ' + this.user.id);
       console.log('The password is: ' + this.user.password);
       this.checkLogon();
-
       this.loginService.login(this.user).subscribe(
         data => {
           console.log('------->' +  data);
