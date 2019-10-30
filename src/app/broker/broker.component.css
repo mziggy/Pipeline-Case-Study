@@ -26,7 +26,6 @@
 }
 
 #port-table tr.header{
-  /* Add a grey background color to the table header and on hover */
   background-color: rgb(12,77,129);
   color: white;
 }
