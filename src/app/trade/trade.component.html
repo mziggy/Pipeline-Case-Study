@@ -4,7 +4,7 @@
       <h1 >TRADE STOCK</h1>
       <hr>
       <mat-dialog-content>
-       <h2> Buy or sell <strong>{{ data }}</strong></h2>
+       <h2> Buy or sell <strong>Stock</strong></h2> <!-- should eventually pull from database-->
         <form [formGroup] = "tradeForm" class = "trade">
             <div class="form-group">
                 <label for="bId">Broker Id:</label>
@@ -28,7 +28,6 @@
                     </div>
                   </div>
         </form>
-        <br>
         <br>
       </mat-dialog-content>
       <hr>
