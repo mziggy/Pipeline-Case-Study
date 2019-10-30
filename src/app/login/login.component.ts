@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Validators, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+
+import { Component, OnInit, Input, Output } from '@angular/core';
+import {Validators, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoggingInService } from './logging-in.service';
 import { User } from '../shared/user';
@@ -77,7 +78,6 @@ export class LoginComponent implements OnInit {
           console.log(data);
           this.user = data;
           this.checkLogon();
-          this.brokerEvent.emit('hello');
           console.log('done');
         }, error => {
           console.log('ERROR HERE' + error);
