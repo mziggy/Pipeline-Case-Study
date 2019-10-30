@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Portfolio } from '../models/portfolio';
 import { CustomerPorfolioService } from './customer-porfolio.service';
 import { User } from '../shared/user';
+import { StorageService } from '../storage.service';
 
 @Component({
   selector: 'app-customer-portfolio',
@@ -33,8 +34,10 @@ export class CustomerPortfolioComponent implements OnInit {
 
   constructor(
    public route: Router,
-   public portfolioService: CustomerPorfolioService
+   public portfolioService: CustomerPorfolioService,
+   private service: StorageService
   ) { }
+  i = 0;
   ngOnInit() {
     this.portfolioService.getProperties().subscribe(
       data => {
@@ -44,11 +47,13 @@ export class CustomerPortfolioComponent implements OnInit {
           console.log(error);
       }
     );
+    console.log('Customer Id: ' + this.service.getCId());
   }
 
-  OpenTradeDialog() {
+  OpenTradeDialog(i) {
     // navigate to transaction page
-      this.route.navigate(['/transaction']);
+    this.service.setSId(this.positions[i].name);
+    this.route.navigate(['/transaction']);
   }
 
   myFunction() {

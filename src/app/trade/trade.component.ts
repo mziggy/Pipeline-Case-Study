@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { StorageService } from '../storage.service';
 
 
 @Component({
@@ -11,13 +12,22 @@ import { Router } from '@angular/router';
 export class TradeComponent implements OnInit {
   tradeForm: FormGroup;
   submitted = false;
+  cId: string;
+  bId: string;
+  stockName: string;
+
 
   constructor(
+    private service: StorageService,
     private formBuilder: FormBuilder,
     private route: Router
     ) { }
-
   ngOnInit() {
+    console.log('Stock name: ' + this.service.getSId());
+    this.stockName = this.service.getSId();
+    this.cId = this.service.getCId();
+    this.bId = this.service.getBId();
+
     this.tradeForm = this.formBuilder.group({
       bId: ['', Validators.required],
       cId: ['', Validators.required],

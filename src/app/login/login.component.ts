@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { LoggingInService } from './logging-in.service';
 import { User } from '../shared/user';
 import { AuthService } from '../auth.service';
-import { EventEmitter } from '@angular/core';
+import { StorageService } from '../storage.service';
 
 
 @Component({
@@ -14,12 +14,11 @@ import { EventEmitter } from '@angular/core';
 })
 
 export class LoginComponent implements OnInit {
-  @Output() brokerEvent = new EventEmitter<string>();
-
   constructor(public loginService: LoggingInService,
               public router: Router,
               private authService: AuthService,
-              public formBuilder: FormBuilder) {}
+              public formBuilder: FormBuilder,
+              private service: StorageService) {}
   loginForm: FormGroup;
   submitted = false;
 
@@ -55,13 +54,15 @@ export class LoginComponent implements OnInit {
     if (this.user != null) {
       if (this.user.id[0] === 'B') {
         console.log('This sessions userId is: ' + this.user.id);
+        this.service.setBId(this.user.id);
         this.router.navigate(['/dashboard']);
       }
       if (this.user.id[0] === 'C') {
-          this.router.navigate(['/portfolio']);
+        this.service.setCId(this.user.id);
+        this.router.navigate(['/portfolio']);
       }
+      this.loginForm.reset();
     }
-    this.loginForm.reset();
     return;
   }
 
@@ -70,8 +71,6 @@ export class LoginComponent implements OnInit {
       this.user.password = this.password.value;
       console.log('This sessions userId is: ' + this.user.id);
       console.log('The password is: ' + this.user.password);
-
-
       this.loginService.login(this.user).subscribe(
         data => {
           console.log('------->' +  data);
