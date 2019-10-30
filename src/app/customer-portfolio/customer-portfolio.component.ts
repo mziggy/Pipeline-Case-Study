@@ -2,6 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { TradeComponent } from '../trade/trade.component';
 import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
+import { Portfolio } from '../models/portfolio';
+import { CustomerPorfolioService } from './customer-porfolio.service';
+import { User } from '../shared/user';
 import { StorageService } from '../storage.service';
 
 @Component({
@@ -11,7 +14,14 @@ import { StorageService } from '../storage.service';
 })
 
 export class CustomerPortfolioComponent implements OnInit {
-  dialogResult = '';
+  @Input() public userid: string;
+
+
+  // id = User.id; // figure out how to capture the same data from logging-in-service
+  title = 'Welcome ' + this.userid;
+
+  portfolio: Portfolio[];
+  errorMessage: any;
   positions: { name: string, quantity: number, value: number, cost: number } [] = [
     { name: 'Shaughn', quantity: 11, value: 12.32, cost: 322},
     { name: 'Molly', quantity: 21, value: 9999, cost:  454},
@@ -24,16 +34,32 @@ export class CustomerPortfolioComponent implements OnInit {
 
   constructor(
    public route: Router,
+   public portfolioService: CustomerPorfolioService,
    private service: StorageService
   ) { }
+  i = 0;
   ngOnInit() {
+    this.portfolioService.getProperties().subscribe(
+      data => {
+        console.log(data);
+        this.portfolio = data;
+      }, error => {
+          console.log(error);
+      }
+    );
     console.log('Customer Id: ' + this.service.getCId());
-
   }
 
-  OpenTradeDialog() {
+  OpenTradeDialog(i) {
     // navigate to transaction page
-      this.route.navigate(['/transaction']);
+    this.service.setSId(this.positions[i].name);
+    this.route.navigate(['/transaction']);
+  }
+
+  openDetails(i) {
+    // navigate to security details page
+    this.service.setSId(this.positions[i].name);
+    this.route.navigate(['/security-details']);
   }
 
   myFunction() {

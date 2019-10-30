@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { StorageService } from '../storage.service';
 
 @Component({
   selector: 'app-securities',
@@ -7,10 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./securities.component.css']
 })
 export class SecuritiesComponent implements OnInit {
-
   constructor(
-    public route: Router
+    public route: Router,
+    private service: StorageService
   ) { }
+
+  stockName: string = this.service.getSId();
 
   ngOnInit() {
   }

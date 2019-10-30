@@ -1,15 +1,25 @@
 package com.dtcc.app.App;
 
+import java.util.Collection;
+
 public class Broker extends User {
-	private String broker_id;
+	private String brokerId;
 	private String password;
 	private String first_name;
 	private String last_name;
-	public String getBroker_id() {
-		return broker_id;
+	private Collection<Customer> customers;
+	
+	public Collection<Customer> getCustomers() {
+		return customers;
 	}
-	public void setBroker_id(String broker_id) {
-		this.broker_id = broker_id;
+	public void setCustomers(Collection<Customer> customers) {
+		this.customers = customers;
+	}
+	public String getBrokerId() {
+		return brokerId;
+	}
+	public void setBrokerId(String broker_id) {
+		this.brokerId = broker_id;
 	}
 	public String getPassword() {
 		return password;

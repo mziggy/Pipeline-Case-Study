@@ -8,7 +8,7 @@ import { TradeComponent } from './trade/trade.component';
 import { SecuritiesComponent } from './securities/securities.component';
 
 const routes: Routes = [
-  {path: 'transaction', component: TradeComponent}, // doesn't work
+  {path: 'transaction', component: TradeComponent},
   {path: 'dashboard', component: BrokerComponent},
   {path: 'portfolio', component: CustomerPortfolioComponent},
   {path: 'login', component: LoginComponent},
