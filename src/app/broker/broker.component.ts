@@ -17,9 +17,15 @@ export class BrokerComponent implements OnInit {
     { firstname: 'Sumra', lastname: 'Gil', cid: 'c127'}
   ];
   constructor() { }
-
+  message: string;
 
   ngOnInit() {
+    console.log('INIT PARENT');
+  }
+
+  getMessage(str: string) {
+     this.message = 'HELLO' + str;
+     console.log('whats going on');
   }
 
   myFunction() {

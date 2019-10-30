@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { LoggingInService } from './logging-in.service';
 import { User } from '../shared/user';
 import { AuthService } from '../auth.service';
-import { EventEmitter } from 'events';
+import { EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -14,7 +14,7 @@ import { EventEmitter } from 'events';
 })
 
 export class LoginComponent implements OnInit {
-  @Output() public userid = new EventEmitter();
+  @Output() brokerEvent = new EventEmitter<string>();
 
   constructor(public loginService: LoggingInService,
               public router: Router,
@@ -70,9 +70,7 @@ export class LoginComponent implements OnInit {
       this.user.password = this.password.value;
       console.log('This sessions userId is: ' + this.user.id);
       console.log('The password is: ' + this.user.password);
-      this.checkLogon();
 
-      this.userid.emit(this.user.id);
 
       this.loginService.login(this.user).subscribe(
         data => {
@@ -80,9 +78,14 @@ export class LoginComponent implements OnInit {
           console.log(data);
           this.user = data;
           this.checkLogon();
+          this.brokerEvent.emit('hello');
+          console.log('done');
         }, error => {
           console.log('ERROR HERE' + error);
         }
       );
+
+
+
     }
   }

@@ -33,7 +33,7 @@ public class TransactionController {
 		int rows = dao.update(transaction);
 		return ResponseEntity.accepted().body("Rows Updated " + rows);
 	}
-	@GetMapping(value="/[id}", produces=MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value="/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
 	public SecurityTransaction getTransaction(@PathVariable("id") int id) {
 		return dao.get(id);
 	}

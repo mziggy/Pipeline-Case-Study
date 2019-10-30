@@ -15,6 +15,7 @@ import { User } from '../shared/user';
 export class CustomerPortfolioComponent implements OnInit {
   @Input() public userid: string;
 
+
   // id = User.id; // figure out how to capture the same data from logging-in-service
   title = 'Welcome ' + this.userid;
 
