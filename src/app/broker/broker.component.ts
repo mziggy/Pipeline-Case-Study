@@ -7,14 +7,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BrokerComponent implements OnInit {
 
-  customers: { firstname: string, lastname: string, cid: string } [] = [
-    { firstname: 'Shaughn', lastname: 'Seepaul', cid: 'c121'},
-    { firstname: 'Molly', lastname: 'Ziggy', cid: 'c122'},
-    { firstname: 'Dre', lastname: 'Will', cid: 'c123'},
-    { firstname: 'Briana', lastname: 'Mayes', cid: 'c124'},
-    { firstname: 'Ali', lastname: 'Fallah', cid: 'c125'},
-    { firstname: 'Claire', lastname: 'Bel', cid: 'c126'},
-    { firstname: 'Sumra', lastname: 'Gil', cid: 'c127'}
+  customers: { name: string, cid: string } [] = [
+    { name: 'Shaugh Seepaul', cid: 'c121'},
+    { name: 'Molly Vonada', cid: 'c122'},
+    { name: 'Dre Will', cid: 'c123'},
+    { name: 'Briana Mayes', cid: 'c124'},
+    { name: 'Ali Fallah', cid: 'c125'},
+    { name: 'Claire Betz', cid: 'c126'},
+    { name:  'Sumra Gil', cid: 'c127'}
   ];
   constructor() { }
 
@@ -42,13 +42,6 @@ export class BrokerComponent implements OnInit {
         }
       }
       td = tr[i].getElementsByTagName('td')[1];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          exists = true;
-        }
-      }
-      td = tr[i].getElementsByTagName('td')[2];
       if (td) {
         txtValue = td.textContent || td.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
