@@ -20,6 +20,7 @@ import { MatDialogModule, MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SecuritiesComponent } from './securities/securities.component';
 import { CustomerComponent } from './customer/customer.component';
+import { AllsecuritiesComponent } from './allsecurities/allsecurities.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { CustomerComponent } from './customer/customer.component';
     PositionComponent,
     TradeComponent,
     SecuritiesComponent,
-    CustomerComponent
+    CustomerComponent,
+    AllsecuritiesComponent
 
   ],
   imports: [
