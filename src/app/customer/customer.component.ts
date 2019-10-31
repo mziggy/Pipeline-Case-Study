@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Customer } from '../shared/customer.model';
+import { Customers } from '../models/customers';
+import { BrokerService } from '../broker/broker.service';
+
+
 
 @Component({
   selector: 'app-customer',
@@ -9,11 +12,15 @@ import { Customer } from '../shared/customer.model';
 export class CustomerComponent implements OnInit {
 
   @Input()
-  customer: Customer;
+  customer: Customers[];
 
-  constructor() { }
+  constructor(private brokerService: BrokerService) { }
 
   ngOnInit() {
+    this.brokerService.getCustomersByBrokerId().subscribe(customers => {
+      this.customer = customers;
+    });
+
   }
 
 }

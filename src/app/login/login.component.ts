@@ -77,7 +77,6 @@ export class LoginComponent implements OnInit {
           console.log(data);
           this.user = data;
           this.checkLogon();
-          this.brokerEvent.emit('hello');
           console.log('done');
         }, error => {
           console.log('ERROR HERE' + error);
