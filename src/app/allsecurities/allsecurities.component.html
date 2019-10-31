@@ -1,1 +1,23 @@
-<p>allsecurities works!</p>
+<h1> All Securities</h1>
+<input id="myInput" (keyup)="myFunction()"  type="text" placeholder="Search through securities..">
+
+
+<table id = "port-table" class = "port-table">
+  <tr class = "header">
+    <th>Symbol</th>
+    <th>Name</th>
+    <th>Current price</th>
+    <th></th>
+  </tr>
+
+  <tr (click)= "OpenDetails(i)" class="items" *ngFor="let position of positions; let i = index" >
+    <td>{{position.symbol}}</td>
+    <td>{{position.securityName}}</td>
+    <td>{{position.cost}}</td>
+    <td>
+        <button mat-raised-button (click)="OpenTradeDialog(i)" >Buy/Sell</button>
+
+    </td>
+  </tr>
+</table>
+
