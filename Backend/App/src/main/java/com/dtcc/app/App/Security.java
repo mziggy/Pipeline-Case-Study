@@ -5,7 +5,7 @@ import java.util.Collection;
 public class Security {
 	private String security_id;
 	private String symbol;
-	private String name;
+	private String security_name;
 	private String type;
 	private double price;
 	private boolean dividend;
@@ -20,11 +20,11 @@ public class Security {
 	public void setSecurity_id(String security_id) {
 		this.security_id = security_id;
 	}
-	public String getName() {
-		return name;
+	public String getSecurity_name() {
+		return security_name;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setSecurity_name(String name) {
+		this.security_name = name;
 	}
 	public String getType() {
 		return type;

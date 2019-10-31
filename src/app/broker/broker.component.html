@@ -13,7 +13,7 @@
     <th>Customer ID</th>
   </tr>
 
-  <tr class="items" *ngFor="let customer of customers" >
+  <tr class="items" (click)="openCust(i)" *ngFor="let customer of customers; let i = index" >
     <td>{{customer.name}}</td>
     <td>{{customer.cid}}</td>
   </tr>

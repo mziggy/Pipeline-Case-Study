@@ -10,11 +10,26 @@ export class StorageService {
   bid: string;
   cid: string;
   sid: string;
+  sname: string;
+  balance: number;
 
-  setSId(id: string){
-    this.sid = id;
+  setBalance(balance: number){
+    this.balance = balance;
+  }
+  getBalance(): number{
+    return this.balance;
   }
 
+  setSname(sname: string){
+    this.sname = sname;
+  }
+  getSname(): string{
+    return this.sname;
+  }
+  setSId(sid: string){
+    this.sid = sid;
+    console.log("service: sid" + sid + " this: " + this.sid);
+  }
   getSId(): string{
     return this.sid;
   }

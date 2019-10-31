@@ -1,14 +1,14 @@
 <div class = "background">
   <div class = "container">
-    <h1> *Stock Name* DETAILS</h1>
+    <h1>{{stockname}}</h1>
     <hr>
     <div class = "details">
-      Stock symbol: <br><br>
-      Current stock price: <br><br>
-      Gives a dividend?: <br><br>
-      Current rating: <br><br>
-      52 week high: <br><br>
-      52 week low: <br>
+      Stock symbol: {{ securities.symbol }}<br><br>
+      Current stock price: {{ securities.price }}<br><br>
+      Gives a dividend?: {{ securities.dividend }}<br><br>
+      Current rating: {{ securities.rating }}<br><br>
+      52 week high: {{ securities.high }} <br><br>
+      52 week low: {{ securities.low }}<br>
     </div>
     <hr>
     <div class = "button">

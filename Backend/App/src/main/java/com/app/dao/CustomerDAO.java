@@ -33,7 +33,7 @@ public class CustomerDAO {
 	
 	public Collection<Customer> getCustomersForBroker(Broker broker) {
 		String sql = "SELECT CUSTOMER_ID, NAME FROM CUSTOMERS WHERE BROKER_ID = ?";
-		Collection<Customer> ct = new JdbcTemplate(datasource).query(sql, new Object[] {broker.getBrokerId() },
+		Collection<Customer> ct = new JdbcTemplate(datasource).query(sql, new Object[] {broker.getId() },
 				new BeanPropertyRowMapper<Customer>());
 		for (Customer customer : ct) {
 			customer.setTransactions(transdao.get(customer));

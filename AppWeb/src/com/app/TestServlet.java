@@ -37,7 +37,9 @@ public class TestServlet extends HttpServlet {
                                     Class.forName("org.apache.derby.jdbc.ClientDriver");
                                     Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/StockDB", "guest", "password");
                                     Statement stmt = conn.createStatement();
-                                    String sql = "UPDATE TRANSACTIONS SET PASS_FAIL = false WHERE TRANSACTION_ID = 1";
+                                    String sql = "INSERT INTO TRANSACTIONS (SECURITY_ID, CUSTOMER_ID, BROKER_ID, "
+                            				+ "TRANS_TYPE, TIMEDATE, AMOUNT, PASS_FAIL, PURCHASE_PRICE, TOTAL_PRICE) "
+                            				+ "VALUES (?,?,?,BUY,?,?,?,?,?,?)";
                                     int rows = stmt.executeUpdate(sql);
                                     response.getWriter().print("Added Rows " + rows);
                         } catch (Exception e) {

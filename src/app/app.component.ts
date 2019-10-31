@@ -8,5 +8,4 @@ import { User } from './shared/user';
 })
 export class AppComponent {
   title = 'pipeline-final-project';
-  parentUser: string = User.id;
 }

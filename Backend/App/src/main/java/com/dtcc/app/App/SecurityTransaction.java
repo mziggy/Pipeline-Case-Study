@@ -5,21 +5,21 @@ import java.sql.Time;
 import java.sql.Timestamp;
 
 public class SecurityTransaction {
-	private String transaction_id;
+	private String transactionId;
 	private String securityId;
 	private String customerId;
 	private String brokerId;
 	private String transType; //buy sell
-	private Timestamp date_time;
+	private Timestamp timedate;
 	private int amount;
 	private boolean status; //status 1= pending, 2=complete
 	private double purchasePrice;
 	private double totalPrice;
-	public String getTransaction_id() {
-		return transaction_id;
+	public String getTransactionId() {
+		return transactionId;
 	}
-	public void setTransaction_id(String tranId) {
-		this.transaction_id = tranId;
+	public void setTransactionId(String tranId) {
+		this.transactionId = tranId;
 	}
 	public String getSecurityId() {
 		return securityId;
@@ -45,11 +45,11 @@ public class SecurityTransaction {
 	public void setTransType(String transType) {
 		this.transType = transType;
 	}
-	public Timestamp getDate_time() {
-		return date_time;
+	public Timestamp getTimedate() {
+		return timedate;
 	}
-	public void setDate_time(Timestamp timestamp) {
-		this.date_time = timestamp;
+	public void setTimedate(Timestamp timestamp) {
+		this.timedate = timestamp;
 	}
 	public int getAmount() {
 		return amount;

@@ -2,6 +2,9 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { StorageService } from '../storage.service';
+import { Trade } from '../models/trade';
+import { TradesService } from './trades.service';
+import { Security } from '../models/security';
 
 
 @Component({
@@ -16,15 +19,28 @@ export class TradeComponent implements OnInit {
   bId: string;
   stockName: string;
 
-
   constructor(
     private service: StorageService,
+    private tradeService: TradesService,
     private formBuilder: FormBuilder,
-    private route: Router
+    private route: Router,
     ) { }
+
+    get amount() {
+      return this.tradeForm.get('amount');
+    }
+
+    get BId() {
+      return this.tradeForm.get('bId');
+    }
+
+    public trade = new Trade();
+
+    get f() { return this.tradeForm.controls; }
+
   ngOnInit() {
     console.log('Stock name: ' + this.service.getSId());
-    this.stockName = this.service.getSId();
+    this.stockName = this.service.getSname();
     this.cId = this.service.getCId();
     this.bId = this.service.getBId();
 
@@ -34,13 +50,24 @@ export class TradeComponent implements OnInit {
       amount: ['', Validators.required],
     });
   }
-  get f() { return this.tradeForm.controls; }
+
 
   buy() {
     // buy stock
     // add to customer portfolio
+    this.tradeService.trade(this.trade).subscribe(
+      data => {
+        console.log('--->' + data);
+        console.log(data);
+        this.trade = data;
+        console.log('done');
+      }, error => {
+        console.log('ERROR HERE' + error);
+      }
+    );
     this.onCloseConfirm();
   }
+
   sell() {
     // sell stock
     // check if customer has enough of this stock in portfolio

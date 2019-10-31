@@ -1,4 +1,5 @@
 <h1>{{ title }}</h1> <!-- should eventually pull from database-->
+<!-- <h3>You currently have {{ balance }}</h3> -->
 <input id="myInput" (keyup)="myFunction()"  type="text" placeholder="Search for names..">
 
 
@@ -11,7 +12,7 @@
     <th></th>
   </tr>
 
-  <tr class="items" *ngFor="let position of positions; let i = index" >
+  <tr (click)= "OpenDetails(i)" class="items" *ngFor="let position of positions; let i = index" >
     <td>{{position.securityName}}</td>
     <td>{{position.quantity}}</td>
     <td>${{position.cost * position.quantity}}</td>

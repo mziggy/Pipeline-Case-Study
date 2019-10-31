@@ -26,7 +26,7 @@ public class SecurityController {
 		return securitydao.getSecurities();
 	}
 
-	@GetMapping(value="/id/{security_id}", produces=MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value="/{security_id}", produces=MediaType.APPLICATION_JSON_VALUE)
 	public Security getSecurity(@PathVariable("security_id") String id) {
 		return securitydao.getSecurity(id);
 	}

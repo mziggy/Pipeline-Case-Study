@@ -20,6 +20,7 @@ export class CustomerPortfolioComponent implements OnInit {
 
 
   id = this.service.getCId();
+  //balance = this.service.getBalance();
   title = 'Welcome ' + this.id;
 
   positions: Portfolio[];
@@ -59,8 +60,16 @@ export class CustomerPortfolioComponent implements OnInit {
 
   OpenTradeDialog(i) {
     // navigate to transaction page
-    // this.service.setSId(this.positions[i].name);
+    this.service.setSname(this.positions[i].securityName);
+    this.service.setSId(this.positions[i].securityId);
     this.route.navigate(['/transaction']);
+  }
+  OpenDetails(i) {
+    // navigate to details page
+    this.service.setSname(this.positions[i].securityName);
+    this.service.setSId(this.positions[i].securityId);
+    console.log("the sid: " + this.positions[i].securityId);
+    this.route.navigate(['/security-details']);
   }
 
   myFunction() {

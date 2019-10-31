@@ -33,7 +33,7 @@ public class SecurityControllerTest {
 		Security stock = new Security();
 		stock.setPrice(9.99);
 		stock.setSymbol("FOO");
-		stock.setName("FOO BAR FOO");
+		stock.setSecurity_name("FOO BAR FOO");
 		stock.setSecurity_id("S11120");
 		String url = "/security-details";
 		HttpHeaders headers = new HttpHeaders();

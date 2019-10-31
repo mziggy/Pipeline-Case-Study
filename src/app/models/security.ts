@@ -1,5 +1,5 @@
 export class Security {
-  id: number;
+  id: string;
   symbol: string;
   name: string;
   type: string;
