@@ -17,10 +17,6 @@ import { StorageService } from '../storage.service';
 
 export class CustomerPortfolioComponent implements OnInit {
   
-  allSecurities(){
-    this.router.navigate(['/all-securities']);
-  }
-
 
   id = this.service.getCId();
   //balance = this.service.getBalance();
@@ -60,7 +56,12 @@ export class CustomerPortfolioComponent implements OnInit {
     );
     console.log('Customer Id: ' + this.service.getCId());
   }
+  
+  allSecurities(){
+    this.router.navigate(['/all-securities']);
+  }
 
+  
   OpenTradeDialog(i) {
     // navigate to transaction page
     this.service.setSname(this.positions[i].securityName);
