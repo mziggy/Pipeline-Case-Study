@@ -16,7 +16,10 @@ import { StorageService } from '../storage.service';
 })
 
 export class CustomerPortfolioComponent implements OnInit {
-  @Input() public userid: string;
+  
+  allSecurities(){
+    this.router.navigate(['/all-securities']);
+  }
 
 
   id = this.service.getCId();
